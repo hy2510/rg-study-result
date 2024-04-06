@@ -18,14 +18,16 @@
       type="module"
     ></script>
   </head>
-  <body
+  <!-- <body
     oncontextmenu="return false"
     onselectstart="return false"
     ondragstart="return false"
     onkeydown="return false"
-  >
+  > -->
+  <body>
     <div class="container">
-      <div id="checkResult" onclick="runCheckResult(1.02, 80,'baro')">
+      <!-- 1단계 : 보물상자 -->
+      <div id="checkResult" onclick="runCheckResult(1.02, 80,'millo')">
         <dotlottie-player
           src="src/lottie/treasure_box.json"
           background="transparent"
@@ -36,10 +38,12 @@
         ></dotlottie-player>
       </div>
 
+      <!-- 2단계 : Good Job -->
       <div
         id="pass"
         class="animate__animated animate__fadeIn"
         style="display: none"
+        onclick="runGoodJobNext()"
       >
         <div id="passPopup" class="result-popup d-none">
           <div class="earn-point">
@@ -56,51 +60,160 @@
         </div>
         <div class="bg-effect pass"></div>
       </div>
+
+      <!-- 3단계 : 일일목표 달성 -->
+      <div
+        id="dailyGoal"
+        class="animate__animated animate__fadeIn"
+        style="display: none"
+        onclick="runDailyGoalNext()"
+      >
+        <div id="dailyGoalPopup" class="result-popup d-none">
+          <div class="confetti"></div>
+          <div class="daily-goal-symbol"></div>
+          <div class="message-box">
+            <div class="txt-1">일일목표 달성!</div>
+            <div class="txt-2">오늘의 학습 목표를 달성했어요!</div>
+          </div>
+        </div>
+        <div class="bg-effect pass"></div>
+      </div>
+
+      <!-- 4단계 : 일일목표 어워드 -->
+      <div
+        id="dailyGoalAward"
+        class="animate__animated animate__fadeIn"
+        style="display: none"
+        onclick="runDailyGoalAwardNext()"
+      >
+        <div id="dailyGoalAwardPopup" class="result-popup d-none">
+          <div class="confetti"></div>
+          <div
+            id="dailyGoalAwardBadge"
+            class="daily-goal-award-badge animate__animated animate__flipInY"
+          ></div>
+          <div class="message-box">
+            <div class="txt-1">일일목표 어워드 획득!</div>
+            <div class="txt-2">
+              대단해요! 일일 학습 목표를 누적 25회 달성했어요!
+            </div>
+          </div>
+        </div>
+        <div class="bg-effect award"></div>
+      </div>
+
+      <!-- 5단계 : 연속학습 달성 -->
+      <div
+        id="streak"
+        class="animate__animated animate__fadeIn"
+        style="display: none"
+        onclick="runStreakNext()"
+      >
+        <div id="streakPopup" class="result-popup d-none">
+          <div class="streak-symbol">
+            <dotlottie-player
+              src="src/lottie/streak_symbol.json"
+              background="transparent"
+              speed="1"
+              style="width: fit-content; height: 250px"
+              loop
+              autoplay
+            ></dotlottie-player>
+          </div>
+          <div class="message-box">
+            <div class="txt-1">연속학습 달성!</div>
+            <div class="txt-2">아자아자! 매일 독서 습관이 쌓여가고 있어요!</div>
+          </div>
+        </div>
+        <div class="bg-effect pass"></div>
+      </div>
+
+      <!-- 6단계 : 연속학습 어워드 -->
+      <div
+        id="streakAward"
+        class="animate__animated animate__fadeIn"
+        style="display: none"
+        onclick="runNewFreindsStoryNext()"
+      >
+        <div id="streakAwardPopup" class="result-popup d-none">
+          <div class="confetti"></div>
+          <div
+            id="streakAwardBadge"
+            class="streak-award-badge animate__animated animate__flipInY"
+          ></div>
+          <div class="message-box">
+            <div class="txt-1">연속학습 어워드 획득!</div>
+            <div class="txt-2">멋져요! 연속학습을 누적 20회 달성했어요!</div>
+          </div>
+        </div>
+        <div class="bg-effect award"></div>
+      </div>
+
+      <!-- 7단계 : 새로운 프렌즈 스토리 오픈 -->
+      <div
+        id="friendsStory"
+        class="animate__animated animate__fadeIn"
+        style="display: none"
+        onclick="runLevelMasterNext()"
+      >
+        <div id="friendsStoryPopup" class="result-popup d-none">
+          <!-- <div class="confetti"></div> -->
+          <div
+            id="friendsStoryCard"
+            class="friends-story-card animate__animated animate__zoomIn"
+          ></div>
+          <div class="message-box">
+            <div class="txt-1">새로운 성장 스토리 잠금해제!</div>
+            <div class="txt-2">퀘스트 메뉴에서 확인해 보세요!</div>
+          </div>
+        </div>
+        <div class="bg-effect pass"></div>
+      </div>
+
+      <!-- 8단계 : 레벨 마스터 -->
+      <div
+        id="levelMaster"
+        class="animate__animated animate__fadeIn"
+        style="display: none"
+        onclick="runChallengeAwardNext()"
+      >
+        <div id="levelMasterPopup" class="result-popup d-none">
+          <div class="confetti"></div>
+          <div
+            id="levelMasterBadge"
+            class="level-master-badge animate__animated animate__fadeInUp"
+          ></div>
+          <div class="message-box">
+            <div class="txt-1">레벨 마스터 배지 획득!</div>
+            <div class="txt-2">
+              훌륭해요! 이 레벨의 수준을 모두 마스터했어요!
+            </div>
+          </div>
+        </div>
+        <div class="bg-effect award"></div>
+      </div>
+
+      <!-- 9단계 : 챌린지 어워드 (영어독서왕 시상) -->
+      <div
+        id="challengeAward"
+        class="animate__animated animate__fadeIn"
+        style="display: none"
+      >
+        <div id="challengeAwardPopup" class="result-popup d-none">
+          <div class="confetti"></div>
+          <div
+            id="challengeAwardBadge"
+            class="challenge-award-badge animate__animated animate__fadeInUp"
+          ></div>
+          <div class="message-box">
+            <div class="txt-1">영어독서왕 챌린지 어워드 획득!</div>
+            <div class="txt-2">축하합니다! 영어독서왕에 등극하셨어요!</div>
+          </div>
+        </div>
+        <div class="bg-effect challenge-award"></div>
+      </div>
     </div>
 
-    <script>
-      const checkResult = document.getElementById("checkResult");
-      const pass = document.getElementById("pass");
-      const passPopup = document.getElementById("passPopup");
-
-      const pointNum = document.getElementById("pointNum");
-      const totalStudyScoreNum = document.getElementById("totalStudyScore");
-      const readingUnit = document.getElementById("readingUnit");
-
-      const audioPass = new Audio("src/audio/study-result-pass.mp3");
-      const audioFail = new Audio("src/audio/study-result-fail.mp3");
-
-      const mobile = matchMedia("screen and (max-width: 1023px)");
-      const tablet = matchMedia("(min-width: 1024px) and (max-width: 1440px)");
-
-      function playAudioPass() {
-        audioPass.play();
-      }
-
-      function runCheckResult(point, totalStudyScore, unitName) {
-        let readingUnitImage = "pass-" + unitName;
-
-        playAudioPass();
-
-        pointNum.innerHTML = point;
-        totalStudyScoreNum.innerHTML = totalStudyScore;
-        readingUnit.className = "reading-unit " + readingUnitImage;
-
-        checkResult.className = "d-none";
-        pass.style.display = "flex";
-
-        setTimeout(() => {
-          passPopup.className =
-            "result-popup d-block animate__animated animate__bounceIn";
-        }, 1000);
-      }
-
-      if (mobile.matches) {
-        passPopup.style.scale = 0.65;
-      }
-      if (tablet.matches) {
-        passPopup.style.scale = 0.75;
-      }
-    </script>
+    <script src="study-resul.js"></script>
   </body>
 </html>
