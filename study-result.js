@@ -1,9 +1,11 @@
 // 시작 항목
 const checkResult = document.getElementById("checkResult");
 
-// Good Job 항목
+// Good Job, Fail 항목
 const pass = document.getElementById("pass");
+const fail = document.getElementById("fail");
 const passPopup = document.getElementById("passPopup");
+const failPopup = document.getElementById("failPopup");
 const pointNum = document.getElementById("pointNum");
 const totalStudyScoreNum = document.getElementById("totalStudyScore");
 const readingUnit = document.getElementById("readingUnit");
@@ -52,6 +54,9 @@ const audioAwardChallenge = new Audio("src/audio/award-challenge.wav");
 function playAudioPass() {
   audioPass.play();
 }
+function playAudioFail() {
+  audioFail.play();
+}
 function playAudioDailyGoal() {
   audioDailyGoal.play();
 }
@@ -69,22 +74,38 @@ function playAudioAwardChallenge() {
 }
 
 // 1단계 : 보물상자 다음
-function runCheckResult(point, totalStudyScore, unitName) {
-  let readingUnitImage = "pass-" + unitName;
+function runCheckResult(result, point, totalStudyScore, unitName) {
+  if (result === "pass") {
+    playAudioPass();
 
-  playAudioPass();
+    pointNum.innerHTML = point;
+    totalStudyScoreNum.innerHTML = totalStudyScore;
+    readingUnit.style.backgroundImage =
+      "url('src/images/study-complete/" + unitName + "_good_job.svg')";
 
-  pointNum.innerHTML = point;
-  totalStudyScoreNum.innerHTML = totalStudyScore;
-  readingUnit.className = "reading-unit " + readingUnitImage;
+    checkResult.className = "d-none";
+    pass.style.display = "flex";
 
-  checkResult.className = "d-none";
-  pass.style.display = "flex";
+    setTimeout(() => {
+      passPopup.className =
+        "result-popup d-block animate__animated animate__bounceIn";
+    }, 1000);
+  }
+  if (result === "fail") {
+    playAudioFail();
 
-  setTimeout(() => {
-    passPopup.className =
-      "result-popup d-block animate__animated animate__bounceIn";
-  }, 1000);
+    totalStudyScoreNum.innerHTML = totalStudyScore;
+    readingUnit.style.backgroundImage =
+      "url('src/images/study-complete/" + unitName + "_try_again.svg')";
+
+    checkResult.className = "d-none";
+    fail.style.display = "flex";
+
+    setTimeout(() => {
+      failPopup.className =
+        "result-popup d-block animate__animated animate__fadeIn";
+    }, 100);
+  }
 }
 
 // 2단계 : Good Job 다음
@@ -193,6 +214,7 @@ function runChallengeAwardNext() {
 // 디바이스 크기에 따라 팝업 사이즈 계산
 if (mobile.matches) {
   passPopup.style.scale = 0.65;
+  failPopup.style.scale = 0.65;
   dailyGoalPopup.style.scale = 0.75;
   dailyGoalAwardPopup.style.scale = 0.75;
   streakPopup.style.scale = 0.75;
@@ -203,6 +225,7 @@ if (mobile.matches) {
 }
 if (tablet.matches) {
   passPopup.style.scale = 0.75;
+  failPopup.style.scale = 0.75;
   dailyGoalPopup.style.scale = 0.85;
   dailyGoalAwardPopup.style.scale = 0.85;
   streakPopup.style.scale = 0.85;

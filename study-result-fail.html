@@ -2,22 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#000000" />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
     <title>Study Result</title>
   </head>
   <body>
     <div class="container">
-      <div id="fail" class="animate__animated animate__fadeIn">
-        <div class="result-popup animate__animated animate__pulse">
-          실패했네
+      <!-- 1단계 : 보물상자 -->
+      <div id="checkResult" onclick="runCheckResult('fail',0, 60,'gino')">
+        <dotlottie-player
+          src="src/lottie/treasure_box.json"
+          background="transparent"
+          speed="1"
+          style="width: fit-content; height: 35dvh"
+          loop
+          autoplay
+        ></dotlottie-player>
+      </div>
+
+      <!-- 완료 : Try Again -->
+      <div
+        id="fail"
+        class="animate__animated animate__fadeIn"
+        style="display: none"
+      >
+        <div id="failPopup" class="result-popup d-none">
+          <div class="earn-point">
+            <div id="readingUnit" class="reading-unit"></div>
+          </div>
+          <div class="ribbon-try-again"></div>
+          <div class="score-container">
+            <div class="txt-total-score">
+              <span id="totalStudyScore"></span>/100
+            </div>
+          </div>
         </div>
         <div class="bg-effect fail"></div>
       </div>
     </div>
+
+    <script src="study-result.js"></script>
   </body>
 </html>

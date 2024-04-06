@@ -130,7 +130,8 @@ body {
   content: "";
   width: 100%;
   height: 100%;
-  background-color: rgb(145, 55, 55);
+  background-color: #5f242d;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 120 120'%3E%3Cpolygon fill='%236D2934' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/%3E%3C/svg%3E");
   position: absolute;
   top: 0;
   left: 0;
@@ -175,6 +176,13 @@ body {
   margin: auto;
 }
 
+.ribbon-try-again {
+  width: 482px;
+  height: 125px;
+  background-image: url("src/images/study-complete/img_try_again_ribbon.svg");
+  margin: auto;
+}
+
 .score-container {
   text-align: center;
   padding-top: 30px;
@@ -199,30 +207,7 @@ body {
 .earn-point .reading-unit {
   width: 424px;
   height: 250px;
-}
-
-.pass-baro {
-  background-image: url("src/images/study-complete/baro_good_job.svg");
-}
-
-.fail-baro {
-  background-image: url("src/images/study-complete/baro_try_again.svg");
-}
-
-.pass-chello {
-  background-image: url("src/images/study-complete/chello_good_job.svg");
-}
-
-.fail-chello {
-  background-image: url("src/images/study-complete/chello_try_again.svg");
-}
-
-.pass-millo {
-  background-image: url("src/images/study-complete/millo_good_job.svg");
-}
-
-.fail-millo {
-  background-image: url("src/images/study-complete/millo_try_again.svg");
+  background-repeat: no-repeat;
 }
 
 .confetti {
