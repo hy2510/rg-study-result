@@ -55,6 +55,34 @@ body {
   justify-content: center;
 }
 
+@media screen and (max-width: 1023px) {
+  #passPopup,
+  #failPopup,
+  #dailyGoalPopup,
+  #dailyGoalAwardPopup,
+  #streakPopup,
+  #streakAwardPopup,
+  #friendsStoryPopup,
+  #levelMasterPopup,
+  #challengeAwardPopup {
+    scale: 0.65;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  #passPopup,
+  #failPopup,
+  #dailyGoalPopup,
+  #dailyGoalAwardPopup,
+  #streakPopup,
+  #streakAwardPopup,
+  #friendsStoryPopup,
+  #levelMasterPopup,
+  #challengeAwardPopup {
+    scale: 0.75;
+  }
+}
+
 .bg-effect.pass,
 .bg-effect.fail,
 .bg-effect.award,

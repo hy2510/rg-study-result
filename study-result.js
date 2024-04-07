@@ -215,6 +215,17 @@ function runChallengeAwardNext() {
 if (mobile.matches) {
   passPopup.style.scale = 0.65;
   failPopup.style.scale = 0.65;
+  dailyGoalPopup.style.scale = 0.65;
+  dailyGoalAwardPopup.style.scale = 0.65;
+  streakPopup.style.scale = 0.65;
+  streakAwardPopup.style.scale = 0.65;
+  friendsStoryPopup.style.scale = 0.65;
+  levelMasterPopup.style.scale = 0.65;
+  challengeAwardPopup.style.scale = 0.65;
+}
+if (tablet.matches) {
+  passPopup.style.scale = 0.75;
+  failPopup.style.scale = 0.75;
   dailyGoalPopup.style.scale = 0.75;
   dailyGoalAwardPopup.style.scale = 0.75;
   streakPopup.style.scale = 0.75;
@@ -222,15 +233,4 @@ if (mobile.matches) {
   friendsStoryPopup.style.scale = 0.75;
   levelMasterPopup.style.scale = 0.75;
   challengeAwardPopup.style.scale = 0.75;
-}
-if (tablet.matches) {
-  passPopup.style.scale = 0.75;
-  failPopup.style.scale = 0.75;
-  dailyGoalPopup.style.scale = 0.85;
-  dailyGoalAwardPopup.style.scale = 0.85;
-  streakPopup.style.scale = 0.85;
-  streakAwardPopup.style.scale = 0.85;
-  friendsStoryPopup.style.scale = 0.85;
-  levelMasterPopup.style.scale = 0.85;
-  challengeAwardPopup.style.scale = 0.85;
 }
