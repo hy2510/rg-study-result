@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@aarsteinmedia/dotlottie-player": "^2.5.6"
+  }
+}
