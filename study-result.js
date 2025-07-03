@@ -49,7 +49,7 @@ const audioDailyGoal = new Audio("src/audio/daily-goal.mp3");
 const audioAward = new Audio("src/audio/award.mp3");
 const audioStreak = new Audio("src/audio/streak.mp3");
 const audioNewFriends = new Audio("src/audio/new-friends-story.mp3");
-const audioAwardChallenge = new Audio("src/audio/award-challenge.wav");
+const audioAwardChallenge = new Audio("src/audio/award-challenge.mp3");
 
 function playAudioPass() {
   audioPass.play();
